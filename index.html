@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TecnoGestión: sistema de administración de equipos tecnológicos.">
+    <title>TecnoGestión | Sistema de gestión</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<!-- INICIO DE SESIÓN -->
+<section id="loginScreen" class="login-screen">
+    <div class="login-card">
+        <div class="logo">
+            <i class="bi bi-pc-display-horizontal"></i>
+            <div>
+                <h2>TecnoGestión</h2>
+                <span>Administración tecnológica</span>
+            </div>
+        </div>
+
+        <h1>Bienvenido</h1>
+        <p>Ingresa para administrar los recursos tecnológicos.</p>
+
+        <form id="loginForm">
+            <label>Usuario</label>
+            <input type="text" id="username" placeholder="Ingresa tu usuario" required>
+
+            <label>Contraseña</label>
+            <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
+
+            <button class="btn primary full" type="submit">
+                Iniciar sesión <i class="bi bi-arrow-right"></i>
+            </button>
+        </form>
+
+        <small class="login-info">
+            Acceso demostrativo: utiliza cualquier usuario y contraseña.
+        </small>
+        <footer>Proyecto académico · TecnoGestión</footer>
+    </div>
+</section>
+
+<!-- APLICACIÓN -->
+<div id="application" class="application hidden">
+
+    <!-- MENÚ LATERAL -->
+    <aside class="sidebar" id="sidebar">
+        <div class="logo sidebar-logo">
+            <i class="bi bi-pc-display-horizontal"></i>
+            <div>
+                <h2>TecnoGestión</h2>
+                <span>Control de equipos</span>
+            </div>
+        </div>
+
+        <p class="menu-title">MENÚ PRINCIPAL</p>
+
+        <nav>
+            <button class="nav-link active" data-page="dashboard">
+                <i class="bi bi-grid"></i> Panel principal
+            </button>
+            <button class="nav-link" data-page="inventory">
+                <i class="bi bi-laptop"></i> Inventario
+            </button>
+            <button class="nav-link" data-page="loans">
+                <i class="bi bi-arrow-left-right"></i> Préstamos
+            </button>
+            <button class="nav-link" data-page="returns">
+                <i class="bi bi-arrow-return-left"></i> Devoluciones
+            </button>
+            <button class="nav-link" data-page="users">
+                <i class="bi bi-people"></i> Usuarios
+            </button>
+            <button class="nav-link" data-page="maintenance">
+                <i class="bi bi-tools"></i> Mantenimientos
+            </button>
+            <button class="nav-link" data-page="reports">
+                <i class="bi bi-bar-chart"></i> Reportes
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <button class="nav-link" data-page="about">
+                <i class="bi bi-info-circle"></i> Acerca del proyecto
+            </button>
+            <button class="nav-link logout" id="logout">
+                <i class="bi bi-box-arrow-left"></i> Cerrar sesión
+            </button>
+        </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+        <header class="topbar">
+            <button id="menuToggle" class="menu-toggle">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <div class="search">
+                <i class="bi bi-search"></i>
+                <input type="search" id="globalSearch" placeholder="Buscar...">
+            </div>
+
+            <div class="profile">
+                <div class="avatar">AD</div>
+                <div>
+                    <strong id="displayUser">Administrador</strong>
+                    <small>Administrador</small>
+                </div>
+            </div>
+        </header>
+
+        <section id="pageContent" class="page-content"></section>
+
+        <footer class="main-footer">
+            TecnoGestión · Sistema de gestión de equipos tecnológicos
+        </footer>
+    </main>
+</div>
+
+<!-- VENTANA DE FORMULARIOS -->
+<div id="modal" class="modal hidden">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h2 id="modalTitle">Formulario</h2>
+            <button id="closeModal"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div id="modalContent"></div>
+    </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
